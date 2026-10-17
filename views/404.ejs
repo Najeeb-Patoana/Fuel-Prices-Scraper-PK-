@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= typeof pageTitle !== 'undefined' ? pageTitle : '404 - Page Not Found — Pakistan Fuel Price Monitor' %></title>
+  <meta name="description" content="404 Page Not Found - Pakistan Fuel Price Monitor." />
+  <meta name="author" content="Najeeb Ullah Khan" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="container row">
+      <div class="header-left">
+        <a href="/" class="brand-link" aria-label="Pakistan Fuel Price Monitor Home">
+          <span class="site-mark" role="img" aria-label="Pakistan country code">PK</span>
+          <div class="header-titles">
+            <span class="site-name">Fuel Price Monitor</span>
+            <span class="site-desc">OGRA Notified &middot; Government of Pakistan</span>
+          </div>
+        </a>
+      </div>
+      <div class="header-right">
+        <div class="header-actions">
+          <a href="/" class="refresh-btn">&larr; Return to Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+    <div class="container error-layout">
+      <div class="error-card">
+        <div class="error-code" aria-hidden="true"><%= typeof customCode !== 'undefined' ? customCode : '404' %></div>
+        <h1 class="error-title"><%= typeof customTitle !== 'undefined' ? customTitle : 'Page Not Found' %></h1>
+        <p class="error-desc">
+          <%= typeof customMessage !== 'undefined' ? customMessage : 'The requested resource or endpoint could not be found on this server. It may have moved or no longer exists.' %>
+        </p>
+
+        <% if (typeof path !== 'undefined' && path) { %>
+          <div style="margin-bottom: 24px;">
+            <span class="mono" style="font-size: 0.75rem; background: var(--bg); padding: 4px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <%= path %>
+            </span>
+          </div>
+        <% } %>
+
+        <div class="error-actions">
+          <a href="/" class="btn-primary">&larr; Return to Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container row">
+      <div>
+        <span>Regulatory Source: <a href="https://www.ogra.org.pk" target="_blank" rel="noopener external">ogra.org.pk</a> &middot; Developed by Najeeb Ullah Khan</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="/" class="footer-link">Dashboard</a>
+        <span class="footer-sep" aria-hidden="true">&middot;</span>
+        <a href="/terms" class="footer-link">Terms &amp; Conditions</a>
+        <span class="footer-sep" aria-hidden="true">&middot;</span>
+        <a href="/refresh" class="footer-link">Force Refresh</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

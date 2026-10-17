@@ -1,0 +1,204 @@
+{
+  "petrol": 386.3,
+  "diesel": 396.96,
+  "log": [
+    {
+      "timestamp": "2026-10-17T14:10:22.622Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:14:33.524Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:14:40.888Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:17:59.712Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:18:41.569Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:18:41.576Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:19:20.411Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:28:03.261Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:30:23.909Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:30:23.933Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:31:18.942Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:36:01.757Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96,
+        "kerosene": 330.14,
+        "light-diesel": 266.41,
+        "high-octane": 425,
+        "cng": 210
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:38:57.928Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96,
+        "kerosene": 330.14,
+        "light-diesel": 266.41,
+        "high-octane": 425,
+        "cng": 210
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:39:43.740Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96,
+        "kerosene": 330.14,
+        "light-diesel": 266.41,
+        "high-octane": 425,
+        "cng": 210
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:41:05.785Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96,
+        "kerosene": 330.14,
+        "light-diesel": 266.41,
+        "high-octane": 425,
+        "cng": 210
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:41:14.556Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96,
+        "kerosene": 330.14,
+        "light-diesel": 266.41,
+        "high-octane": 425,
+        "cng": 210
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:45:46.947Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96,
+        "kerosene": 330.14,
+        "light-diesel": 266.41,
+        "high-octane": 425,
+        "cng": 210
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:48:54.058Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96,
+        "kerosene": 330.14,
+        "light-diesel": 266.41,
+        "high-octane": 425,
+        "cng": 210
+      }
+    },
+    {
+      "timestamp": "2026-10-17T14:55:28.734Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96,
+        "kerosene": 330.14,
+        "light-diesel": 266.41,
+        "high-octane": 425,
+        "cng": 210
+      }
+    },
+    {
+      "timestamp": "2026-10-17T15:04:13.956Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96,
+        "kerosene": 330.14,
+        "light-diesel": 266.41,
+        "high-octane": 425,
+        "cng": 210
+      }
+    },
+    {
+      "timestamp": "2026-10-17T15:08:19.471Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96,
+        "kerosene": 330.14,
+        "light-diesel": 266.41,
+        "high-octane": 425,
+        "cng": 210
+      }
+    },
+    {
+      "timestamp": "2026-10-17T15:11:54.104Z",
+      "prices": {
+        "petrol": 386.3,
+        "diesel": 396.96,
+        "kerosene": 330.14,
+        "light-diesel": 266.41,
+        "high-octane": 425,
+        "cng": 210
+      }
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= typeof pageTitle !== 'undefined' ? pageTitle : 'Terms & Conditions — Pakistan Fuel Price Monitor' %></title>
+  <meta name="description" content="Terms of service, data source disclaimer, and usage guidelines for the Pakistan Fuel Price Monitor." />
+  <meta name="author" content="Najeeb Ullah Khan" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="container row">
+      <div class="header-left">
+        <a href="/" class="brand-link" aria-label="Pakistan Fuel Price Monitor Home">
+          <span class="site-mark" role="img" aria-label="Pakistan country code">PK</span>
+          <div class="header-titles">
+            <span class="site-name">Fuel Price Monitor</span>
+            <span class="site-desc">OGRA Notified &middot; Government of Pakistan</span>
+          </div>
+        </a>
+      </div>
+      <div class="header-right">
+        <div class="header-actions">
+          <a href="/" class="refresh-btn">&larr; Return to Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+    <div class="page-container">
+
+      <header class="page-header">
+        <h1 class="page-title">Terms &amp; Conditions &middot; Regulatory Disclaimer</h1>
+        <p class="page-subtitle">Last reviewed: October 2026 &middot; Guidelines for public data usage</p>
+      </header>
+
+      <article class="legal-card">
+        
+        <section class="legal-section">
+          <h2 class="legal-heading">1. Official Data Sources</h2>
+          <p class="legal-text">
+            All petroleum commodity rates displayed on this platform are derived from official notifications published by the <strong>Oil &amp; Gas Regulatory Authority (OGRA)</strong> and the <strong>Ministry of Energy (Petroleum Division)</strong>, Government of Pakistan.
+          </p>
+          <p class="legal-text">
+            Prices in Pakistan are revised on a fortnightly schedule (typically effective on the 1st and 16th calendar days of each month) taking into account global crude benchmarks, exchange rates, and petroleum levies.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2 class="legal-heading">2. Informational Purpose &amp; Retail Variations</h2>
+          <p class="legal-text">
+            This application is maintained as an independent public utility to track notified price ceilings and historical trends. While automated synchronization aims to reflect gazette notifications immediately upon release:
+          </p>
+          <ul class="legal-list">
+            <li>Retail pump prices across various Oil Marketing Companies (OMCs) may reflect minor geographic variances permitted under Inland Freight Equalization Margin (IFEM) rules.</li>
+            <li>In the event of any discrepancy between this tracker and official statutory regulatory orders (SROs), the gazette published by OGRA supersedes all figures.</li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2 class="legal-heading">3. Independence &amp; Affiliation</h2>
+          <p class="legal-text">
+            This platform is an independent data monitor developed by Najeeb Ullah Khan. It is not owned, operated, or endorsed by OGRA, Pakistan State Oil (PSO), or any government ministry. Mention of government authorities is strictly for data attribution and reference.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2 class="legal-heading">4. Fair Use &amp; Service Availability</h2>
+          <p class="legal-text">
+            An in-memory cache with a 5-minute Time-To-Live (TTL) is enforced to ensure server stability. Consumers are requested to respect cache headers and avoid abusive automated polling.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2 class="legal-heading">5. Limitation of Liability</h2>
+          <p class="legal-text">
+            All information and automated trend indicators are provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo; basis without warranties of any kind, whether express or implied. The maintainer accepts no liability for financial, operational, or logistical decisions undertaken on the basis of this application.
+          </p>
+        </section>
+
+      </article>
+
+      <div style="margin-top: 24px;">
+        <a href="/" class="btn-primary">&larr; Return to Dashboard</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container row">
+      <div>
+        <span>Regulatory Source: <a href="https://www.ogra.org.pk" target="_blank" rel="noopener external">ogra.org.pk</a> &middot; Developed by Najeeb Ullah Khan</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="/" class="footer-link">Dashboard</a>
+        <span class="footer-sep" aria-hidden="true">&middot;</span>
+        <a href="/terms" class="footer-link">Terms &amp; Conditions</a>
+        <span class="footer-sep" aria-hidden="true">&middot;</span>
+        <a href="/refresh" class="footer-link">Force Refresh</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

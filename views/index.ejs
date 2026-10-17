@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pakistan Fuel Prices — OGRA Price Monitor</title>
+  <meta name="description" content="Official Oil & Gas Regulatory Authority (OGRA) notified fuel prices across Pakistan. Real-time rates for Petrol, High Speed Diesel, Kerosene, Light Diesel, High Octane and CNG." />
+  <meta name="author" content="Najeeb Ullah Khan" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="container row">
+      <div class="header-left">
+        <a href="/" class="brand-link" aria-label="Pakistan Fuel Price Monitor Home">
+          <span class="site-mark" role="img" aria-label="Pakistan country code">PK</span>
+          <div class="header-titles">
+            <span class="site-name">Fuel Price Monitor</span>
+            <span class="site-desc">OGRA Notified &middot; Government of Pakistan</span>
+          </div>
+        </a>
+      </div>
+      <div class="header-right">
+        <% if (fetchedAt) { %>
+          <time class="fetch-time mono" datetime="<%= fetchedAt.toISOString() %>">
+            Updated: <%= fetchedAt.toLocaleString('en-PK', { timeZone: 'Asia/Karachi', hour12: true }) %>
+          </time>
+        <% } %>
+        <div class="header-actions">
+          <a href="/refresh" class="refresh-btn" aria-label="Force refresh price data from source">Refresh</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+    <div class="container">
+
+      <% if (typeof warning !== 'undefined' && warning) { %>
+        <aside class="notice notice--warn" role="alert" aria-live="polite">
+          <span><%= warning %></span>
+          <a href="/refresh" class="refresh-btn" style="padding: 3px 8px; font-size: 0.72rem;">Try Again</a>
+        </aside>
+      <% } %>
+
+      <% if (fuels && fuels.length) { %>
+        <section class="section" aria-labelledby="current-prices-heading">
+          <div class="section-label-row">
+            <h2 id="current-prices-heading" class="section-label">Current Notified Rates &mdash; Pakistan Regulated Basket</h2>
+            <span class="catalog-badge mono"><%= fuels.length %> Commodities</span>
+          </div>
+          <div class="price-grid" role="list">
+            <% fuels.forEach(function(fuel) {
+              const down = fuel.change_pkr < 0;
+              const up   = fuel.change_pkr > 0;
+              const unit = fuel.unit || 'litre';
+            %>
+            <article class="price-card" role="listitem" aria-label="<%= fuel.fuel %> rate <%= fuel.price_pkr.toFixed(2) %> Pakistani Rupees per <%= unit %>">
+              <div class="price-card__top">
+                <span class="fuel-name"><%= fuel.fuel %></span>
+                <span class="fuel-date mono"><%= fuel.effective_date %></span>
+              </div>
+
+              <div class="price-main">
+                <span class="price-currency" aria-hidden="true">Rs.</span>
+                <span class="price-amount mono"><%= fuel.price_pkr.toFixed(2) %></span>
+                <span class="price-unit mono">/ <%= unit %></span>
+                <span class="sr-only">Pakistani Rupees per <%= unit %></span>
+              </div>
+
+              <div class="price-meta">
+                <div class="meta-row">
+                  <span class="meta-key">OGRA revision</span>
+                  <span class="meta-val <%= up ? 'val--up' : down ? 'val--down' : 'val--flat' %>" aria-label="Fortnightly revision: <%= up ? 'increased by ' + fuel.change_pkr : down ? 'decreased by ' + Math.abs(fuel.change_pkr) : 'unchanged' %> PKR">
+                    <%= up ? '+' : '' %><%= fuel.change_pkr %> PKR
+                  </span>
+                </div>
+                <div class="meta-row">
+                  <span class="meta-key">Since last check</span>
+                  <% if (fuel.diff === null) { %>
+                    <span class="meta-val val--flat" aria-label="First recorded check">baseline</span>
+                  <% } else if (fuel.diff === 0) { %>
+                    <span class="meta-val val--flat" aria-label="No change since last check">no change</span>
+                  <% } else { %>
+                    <span class="meta-val <%= fuel.diff > 0 ? 'val--up' : 'val--down' %>" aria-label="Change since last check: <%= fuel.diff > 0 ? 'plus ' + fuel.diff : 'minus ' + Math.abs(fuel.diff) %> PKR">
+                      <%= fuel.diff > 0 ? '+' : '' %><%= fuel.diff %> PKR
+                    </span>
+                  <% } %>
+                </div>
+              </div>
+
+              <div class="price-card__bar <%= up ? 'bar--up' : down ? 'bar--down' : '' %>" aria-hidden="true"></div>
+            </article>
+            <% }) %>
+          </div>
+        </section>
+      <% } %>
+
+      <section class="section" aria-labelledby="history-heading">
+        <h2 id="history-heading" class="section-label">Revision Audit Log &mdash; Last Recorded Checks</h2>
+
+        <% if (!history || !history.log || history.log.length === 0) { %>
+          <p class="empty-msg" role="status">No historical entries recorded yet. Rates will archive automatically upon each revision cycle.</p>
+        <% } else { %>
+          <div class="table-scroll">
+            <table class="data-table" aria-label="Historical fuel price revisions log table">
+              <caption class="sr-only">Archive of recorded fuel prices and timestamps</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Recorded Timestamp (PKT)</th>
+                  <th scope="col">Petrol (MS 92)</th>
+                  <th scope="col">Diesel (HSD)</th>
+                  <th scope="col">Kerosene</th>
+                  <th scope="col">Light Diesel</th>
+                  <th scope="col">High Octane</th>
+                  <th scope="col">CNG</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% history.log.slice().reverse().slice(0, 10).forEach(function(entry, i) { %>
+                  <tr<%= i === 0 ? ' class="tr--latest"' : '' %>>
+                    <td class="td-date mono">
+                      <%= new Date(entry.timestamp).toLocaleString('en-PK', { timeZone: 'Asia/Karachi', hour12: true }) %>
+                      <% if (i === 0) { %><span class="tag-latest" aria-label="Latest recorded check">Latest</span><% } %>
+                    </td>
+                    <td class="td-petrol mono"><%= entry.prices && entry.prices.petrol ? 'Rs. ' + entry.prices.petrol.toFixed(2) : '—' %></td>
+                    <td class="td-diesel mono"><%= entry.prices && entry.prices.diesel ? 'Rs. ' + entry.prices.diesel.toFixed(2) : '—' %></td>
+                    <td class="td-kero mono"><%= entry.prices && entry.prices.kerosene ? 'Rs. ' + entry.prices.kerosene.toFixed(2) : '—' %></td>
+                    <td class="td-ldo mono"><%= entry.prices && (entry.prices['light-diesel'] || entry.prices['light-diesel-oil']) ? 'Rs. ' + (entry.prices['light-diesel'] || entry.prices['light-diesel-oil']).toFixed(2) : '—' %></td>
+                    <td class="td-hobc mono"><%= entry.prices && entry.prices['high-octane'] ? 'Rs. ' + entry.prices['high-octane'].toFixed(2) : '—' %></td>
+                    <td class="td-cng mono"><%= entry.prices && entry.prices.cng ? 'Rs. ' + entry.prices.cng.toFixed(2) : '—' %></td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        <% } %>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container row">
+      <div>
+        <span>Regulatory Source: <a href="https://www.ogra.org.pk" target="_blank" rel="noopener external">ogra.org.pk</a> &middot; Developed by Najeeb Ullah Khan</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="/" class="footer-link">Dashboard</a>
+        <span class="footer-sep" aria-hidden="true">&middot;</span>
+        <a href="/terms" class="footer-link">Terms &amp; Conditions</a>
+        <span class="footer-sep" aria-hidden="true">&middot;</span>
+        <a href="/refresh" class="footer-link">Force Refresh</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
